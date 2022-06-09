@@ -26,11 +26,12 @@ public class VendingMachine {
                 String productName = words[1];
                 String productPrice = words[2];
                 double price = Double.parseDouble(productPrice);
-                String productType = words[3];
+                String productType = words[3]; // we need to figure out how to use this piece of info to sort the items into their proper subclasses
+                // if productType = chips, Chips chippy = new Chip(productName, price); => repeat for ea productType, this pushes all that stuff to the proper subclass
+                // then we need to move each new item into the inventory (aka Vending Machine) <==== goes in a list, organized by productName - list says "Toblerone (4!), Snickers (3!)
 
-                List<String> productNames = new ArrayList<>() {words[0]};
 
-                VendingMachineItem item = new VendingMachineItem(productName, price, productType);
+                VendingMachineItem item = new Gum(productName, price); // make one of these for each treat type
 
                 inventory.put(locationKey, productName);    // this loads the map
             }
