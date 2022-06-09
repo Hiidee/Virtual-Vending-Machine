@@ -27,7 +27,21 @@ public class VendingMachine {
                 String productPrice = words[2];
                 double price = Double.parseDouble(productPrice);
                 String productType = words[3]; // we need to figure out how to use this piece of info to sort the items into their proper subclasses
-                // if productType = chips, Chips chippy = new Chip(productName, price); => repeat for ea productType, this pushes all that stuff to the proper subclass
+
+                // the following pushes all the items to their proper subclass
+                if (productType.equals("Chip")) {
+                    Chip chippy = new Chip(productName, price);
+                }
+                if (productType.equals("Candy")) {
+                    Candy sweet = new Candy(productName, price);
+                }
+                if (productType.equals("Drink")) {
+                    Drink pop = new Drink(productName, price);
+                }
+                if (productType.equals("Gum")) {
+                    Gum chewy = new Gum(productName, price);
+                }
+
                 // then we need to move each new item into the inventory (aka Vending Machine) <==== goes in a list, organized by productName - list says "Toblerone (4!), Snickers (3!)
 
 
@@ -36,7 +50,7 @@ public class VendingMachine {
                 inventory.put(locationKey, productName);    // this loads the map
             }
         } catch (FileNotFoundException fnfe) {
-            System.out.println("PROBLEM");
+            System.out.println("YOU BROKE THE MACHINE");
         }
     }
 

@@ -1,5 +1,9 @@
 package com.techelevator;
 
+import com.sun.security.jgss.GSSUtil;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+
 public class UserInterface {
 
     // maybe get start look at review day for example of mostly class work and calling the ui.start method
@@ -16,9 +20,48 @@ public class UserInterface {
         System.out.println();
         System.out.println("Current balance: ");
         System.out.println("(1) Feed money");
+            // if user chooses (1),
+            // do a try / catch in case user enters 0 or a letter or nothing.
+                // (A) System.out.println("You didn't add any money!" OR
+                // feedMoney() & (A) System.out.println("Your balance is now: $" + newBalance); (B) write appropriate moneyDepositedTextToLog
         System.out.println("(2) Select Product");
-        System.out.println("(3) Exit");
+            // if user chooses (2),
+            // System.out.println(productLocation + " " + productName + " $" + price); => Probably will need a loop. Also is there any way to get this to print on different lines?
+                //if user enters a code that doesn't exist, (A) System.out.println("Sorry, that item doesn't exist."), (B) return to Purchase menu
+                //if user asks for an item that is sold out (quantity == 0 || userInput > quantity), (A) System.out.println("Sorry, that item is sold out."), (B) return to Purchase menu
+                //if userInput < quantity,
+                    // (A) updateQuantity(),
+                    // (B) write appropriate activityTextToLog
+                    // another IF scenario for (C) System.out.println(DISPENSE RESPONSE);
+                    // (D) return to Purchase menu;
+        System.out.println("(3) Finish Transaction");
+                // (A) receivesChange(), balance = 0
+                // (B) Return to Main Menu,
+                // (C) write appropriate moneyDepositedTextToLog
         System.out.println("```");
+    }
+
+    public void dispenseResponse() { //This may need to go somewhere else. Like if there's a get.Chip() it could be part of that.
+        // String chipPhrase = "Crunch Crunch, Yum!"
+        // String drinkPhrase = "Glug Glug, Yum!"
+        // String candyPhrase = "Munch Munch, Yum!"
+        // String gumPhrase = "Chew Chew, Yum!"
+        // this approach would require a for loop
+        // if (productType.equals("Chip"));
+        //System.out.println("Enjoy your " + productName + ". It cost: " + price + ". Your remaining balance is: " + newBalance + ". " + chipPhrase);
+        // if (productType.equals("Gum"));
+        //System.out.println("Enjoy your " + productName + ". It cost: " + price + ". Your remaining balance is: " + newBalance + ". " + gumPhrase);
+        // if (productType.equals("Drink"));
+        //System.out.println("Enjoy your " + productName + ". It cost: " + price + ". Your remaining balance is: " + newBalance + ". " + drinkPhrase);
+        // if (productType.equals("Candy"));
+        //System.out.println("Enjoy your " + productName + ". It cost: " + price + ". Your remaining balance is: " + newBalance + ". " + candyPhrase);
+    }
+
+    public void activityTextToLog() {
+        String dateTime = LocalDateTime.now().format(DateTimeFormatter.ofPattern("MM/dd/yyyy h:mm:ss a"));
+        // if money is deposited, writer.println(dateTime + " FEED MONEY: $" + moneyIn + " $" + newBalance);
+        // if money is spent, writer.println(dateTime + " " + productName + " " + productLocation + " $" + price + " $" + newBalance);
+        // if change is given, writer.println(dateTime + " GIVE CHANGE: $" + changeReturned + " $" + newBalance);
     }
 
     // potentially getUserInput() Method that takes input from keyboard for 1,2,3 then wiould call the menu based on input

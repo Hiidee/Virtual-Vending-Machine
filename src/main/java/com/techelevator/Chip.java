@@ -1,8 +1,8 @@
 package com.techelevator;
 
-public class Beverages extends VendingMachineItem {
-    public Beverages(String productName, double price) {
-        super(productName, price, "Beverages");
+public class Chip extends VendingMachineItem {
+    public Chip(String productName, double price) {
+        super(productName, price, "Chip");
     }
     // constructor needs to be overwritten since the parent has a custom constructor
     //    public VendingMachineItem(String productName, double price, String productType) {

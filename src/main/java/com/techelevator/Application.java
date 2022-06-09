@@ -7,6 +7,7 @@ public class Application {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         UserInterface userInterface = new UserInterface();
+
         userInterface.getMainMenu();
 
         VendingMachine vendingMachine = new VendingMachine();
@@ -23,6 +24,11 @@ public class Application {
         } else if (menuChoiceNumber == 3) {
         } else if (menuChoiceNumber == 4) {
         }
+
+
+
+
+
 
         /*
         do {
