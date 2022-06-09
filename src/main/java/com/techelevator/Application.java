@@ -22,7 +22,6 @@ public class Application {
         } else if (menuChoiceNumber == 2) {
         } else if (menuChoiceNumber == 3) {
         } else if (menuChoiceNumber == 4) {
-
         }
 
         /*
