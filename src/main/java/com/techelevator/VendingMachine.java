@@ -56,6 +56,6 @@ public class VendingMachine {
 
     @Override
     public String toString() {
-        return "Vending Machine " + inventory;
+        return "Vending Machine " + inventory; // can we need to add + price and + quantity?? <key: Location, value: "productName + productPrice + quantity">
     }
 }

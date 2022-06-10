@@ -4,24 +4,43 @@ public class MathOperations {
     private double balance = 0;
 
     public double feedMoney(double moneyIn) {
-        balance = balance + moneyIn;
-        return balance; //does this need to involve this.Balance?
+        balance = balance + moneyIn; // we need to double check where moneyIn is declared, and develop some stuff around what if moneyIn is a string
+        return balance;
     }
 
-    public int updateQuantity(int quantity) { // QUESTION: DO we want to put the various print-outs here too?
+    public int updateQuantity(int quantity) {
+        if (quantity == 0) {
+            System.out.println("SOLD OUT");
+            return quantity;
+        }
         if (quantity > 0) {
             quantity = quantity - 1;
-            return quantity; //does this need to involve this.quantity?
-          }
-        
-    public double receivesChange(double balance) { //why is this throwing compiler errors?
-            if (balance > 0) {
-                double numberOfQuarters = balance / .25; // this determines the number of quarters
-                double numberOfDimes = (balance % .25) / .10; // the remainder of balance / .25 divided by .10 determines the number of dimes
-                double numberOfNickels = (numberOfDimes % .10) / 0.05; // this determines the number of nickels returned from what's left over after dimes paid out
-            System.out.println("You will receive " + numberOfQuarters + "quarters, " + numberOfDimes + "dimes, and " + numberOfNickels + "in nickels.");
-            }
-        }
+            return quantity;
 
+        }
+        return quantity;
+    }
+
+    public double receivesChange(double balance) {
+        if (balance > 0) {
+            int numberOfDimes = 0;
+            int numberOfQuarters = 0;
+            int numberOfNickels = 0;
+            if ((balance % .25) != 0) {
+                numberOfQuarters = (int) (balance / .25);
+                balance = balance - (numberOfQuarters * .25);
+            } else if ((balance % .1) != 0) {
+                numberOfDimes = (int) ((balance % .25) / .10);
+                balance = balance - (numberOfDimes * .10);
+            } else if ((balance % .05) != 0) {
+                numberOfNickels = (int) ((balance % .1) / 05);
+                balance = balance - (numberOfNickels * .10);
+            }
+            System.out.println("You will receive " + numberOfQuarters + "quarters, " + numberOfDimes + "dimes, and " + numberOfNickels + "in nickels.");
+        } else {
+            System.out.println("Your balance is $0.00!");
+        }
+        return balance;
+    }
 }
-}
+
