@@ -53,6 +53,23 @@ public class VendingMachine {
         }
     }
 
+    public VendingMachineItem purchaseItem(String pickLocation) { // input is locationKey, that pulls map at the location and gives the object
+        if (inventory.containsKey(pickLocation)) {
+            if ()
+        }
+            int quantity = 5;
+        if (quantity == 0) {    // if map.contains(locationKey)
+            System.out.println("SOLD OUT"); // quantity check and if > 0  && balance > price then quantity-- and new balance = balance - price
+            return quantity;                // else if (quantity = 0) return out of stock and pull menu again
+        }                                   // else if (balance < price) return balance not enough and return the menu again
+        if (quantity > 0) {
+            quantity = quantity - 1;
+            return quantity;
+
+        }
+        return quantity;
+    }
+
     @Override
     public String toString() {
         String print = "";

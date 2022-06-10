@@ -1,26 +1,24 @@
 package com.techelevator;
 
 public class MathOperations {
-    private double balance = 0;
+    private double balance = 0.00;
 
-    public double feedMoney(double moneyIn) {
-        balance = balance + moneyIn; // we need to double check where moneyIn is declared, and develop some stuff around what if moneyIn is a string
+    public double getBalance() {
         return balance;
     }
 
-    public int updateQuantity(int quantity) {
-        if (quantity == 0) {
-            System.out.println("SOLD OUT");
-            return quantity;
-        }
-        if (quantity > 0) {
-            quantity = quantity - 1;
-            return quantity;
-
-        }
-        return quantity;
+    public void setBalance(double balance) {
+        this.balance = balance;
     }
 
+    public double feedMoney(int moneyIn) {
+        if (moneyIn > 0) {
+            balance = balance + moneyIn; // we need to double check where moneyIn is declared, and develop some stuff around what if moneyIn is a string
+        }
+        return balance;
+    }
+
+    // needs looked at
     public double receivesChange(double balance) {
         if (balance > 0) {
             int numberOfDimes = 0;
@@ -36,7 +34,7 @@ public class MathOperations {
                 numberOfNickels = (int) ((balance % .1) / 05);
                 balance = balance - (numberOfNickels * .10);
             }
-            System.out.println("You will receive " + numberOfQuarters + "quarters, " + numberOfDimes + "dimes, and " + numberOfNickels + "in nickels.");
+            System.out.println("You will receive " + numberOfQuarters + " quarters, " + numberOfDimes + " dimes, and " + numberOfNickels + " in nickels.");
         } else {
             System.out.println("Your balance is $0.00!");
         }
