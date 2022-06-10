@@ -20,10 +20,10 @@ public class MathOperations {
 
     // needs looked at
     public double receivesChange(double balance) {
+        int numberOfDimes = 0;
+        int numberOfQuarters = 0;
+        int numberOfNickels = 0;
         if (balance > 0) {
-            int numberOfDimes = 0;
-            int numberOfQuarters = 0;
-            int numberOfNickels = 0;
             if ((balance % .25) != 0) {
                 numberOfQuarters = (int) (balance / .25);
                 balance = balance - (numberOfQuarters * .25);
@@ -36,7 +36,7 @@ public class MathOperations {
             }
             System.out.println("You will receive " + numberOfQuarters + " quarters, " + numberOfDimes + " dimes, and " + numberOfNickels + " in nickels.");
         } else {
-            System.out.println("Your balance is $0.00!");
+            System.out.println("Your balance is &" + balance);
         }
         return balance;
     }
