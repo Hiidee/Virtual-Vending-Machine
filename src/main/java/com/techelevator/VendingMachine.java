@@ -43,7 +43,6 @@ public class VendingMachine {
                 }
                 /*
                 // then we need to move each new item into the inventory (aka Vending Machine) <==== goes in a list, organized by productName - list says "Toblerone (4!), Snickers (3!)
-
                 //make one of these for each treat type
                 //VendingMachineItem item = new Gum(productName, price);
                  */
@@ -56,13 +55,12 @@ public class VendingMachine {
 
     @Override
     public String toString() {
-        String print;
+        String print = "";
         for (String vendingItem : inventory.keySet()) {
-            vendingItem += inventory.values();
-            print = vendingItem + " \n";
-            return print;
+            // vendingItem += inventory.values();
+            print += vendingItem + ": " + inventory.get(vendingItem) + " \n";
         }
         ///    \n  newline - loop thru map, for each inventory.keyset, create a string variable, string += inventory.key. get name + get price + \n
-        return "Vending Machine " + "test"; // can we need to add + price and + quantity?? <key: Location, value: "productName + productPrice + quantity">
+        return print; // can we need to add + price and + quantity?? <key: Location, value: "productName + productPrice + quantity">
     }
 }

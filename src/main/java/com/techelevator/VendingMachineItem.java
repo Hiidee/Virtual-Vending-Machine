@@ -1,7 +1,7 @@
 package com.techelevator;
 
 public abstract class VendingMachineItem {
-    private String locationKey;
+//    private String locationKey;
     private String productName;
     private double price;
     private String productType;
@@ -16,4 +16,10 @@ public abstract class VendingMachineItem {
     // return the quantity so we can update
     // math operations needs to handle
     // need to be able to call math operations
+
+
+    @Override
+    public String toString() {
+        return productName + " " + '\'' + "$" + price + '\''+ " " + productType;
+    }
 }

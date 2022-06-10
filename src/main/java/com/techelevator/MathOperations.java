@@ -43,4 +43,3 @@ public class MathOperations {
         return balance;
     }
 }
-

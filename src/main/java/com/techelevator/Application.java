@@ -7,9 +7,7 @@ public class Application {
     public static void main(String[] args) {
         //Scanner scanner = new Scanner(System.in);
         UserInterface ui = new UserInterface();
-
         ui.start(); // display main menu
-
         /*
         VendingMachine vendingMachine = new VendingMachine(); // the quantity of every item should reset to 5
 
@@ -27,11 +25,9 @@ public class Application {
         } else if (menuChoiceNumber == 3) {
         } else if (menuChoiceNumber == 4) {
         }
-
          */
         /*
         do {
-
             if (menuChoiceNumber == 1) {
             } else if (menuChoiceNumber == 2) {
             } else if (menuChoiceNumber == 3) {
@@ -41,7 +37,6 @@ public class Application {
                 userInterface.getMainMenu();
             }
         } while (menuChoiceNumber == 0 || menuChoiceNumber > 4);
-
          */
     }
 }

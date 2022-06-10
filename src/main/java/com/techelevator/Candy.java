@@ -5,7 +5,6 @@ public class Candy extends VendingMachineItem {
         super(productName, price, "Candy");
     }
 
-
     // constructor needs to be overwritten since the parent has a custom constructor
     //    public VendingMachineItem(String productName, double price, String productType) {
     //        this.productName = productName;
