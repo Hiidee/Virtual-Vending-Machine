@@ -1,6 +1,6 @@
 package com.techelevator;
 
-public class VendingMachineItem {
+public abstract class VendingMachineItem {
     private String locationKey;
     private String productName;
     private double price;

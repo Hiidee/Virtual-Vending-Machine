@@ -5,16 +5,18 @@ import java.util.Scanner;
 // This is Vending Machine
 public class Application {
     public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
-        UserInterface userInterface = new UserInterface();
+        //Scanner scanner = new Scanner(System.in);
+        UserInterface ui = new UserInterface();
 
-        userInterface.getMainMenu(); // display main menu
+        ui.start(); // display main menu
 
+        /*
         VendingMachine vendingMachine = new VendingMachine(); // the quantity of every item should reset to 5
 
         String menuChoice = scanner.nextLine();
         int menuChoiceNumber = Integer.parseInt(menuChoice);
 
+          moved all the following to the UserInterface class.
         if (menuChoiceNumber == 0 || menuChoiceNumber > 4) {
             System.out.println("Please enter 1, 2, or 3");
             userInterface.getMainMenu();
@@ -26,11 +28,7 @@ public class Application {
         } else if (menuChoiceNumber == 4) {
         }
 
-
-
-
-
-
+         */
         /*
         do {
 
