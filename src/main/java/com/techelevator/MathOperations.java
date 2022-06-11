@@ -19,11 +19,57 @@ public class MathOperations {
     }
 
     // needs looked at
-    public double receivesChange(double balance) {
+    public double getChange(double balance) {
         int numberOfDimes = 0;
         int numberOfQuarters = 0;
         int numberOfNickels = 0;
-        if (balance > 0) {
+
+        balance = 1.40;
+
+        if (balance > 0.0) {
+            if ((balance % .25) == 0) {
+                numberOfQuarters = (int)(balance / .25);
+                balance = balance - ((double)numberOfQuarters * .25);
+            } else {
+                numberOfQuarters = (int)(balance / .25);
+                balance = balance - ((double)numberOfQuarters * .25);
+                numberOfDimes = (int)(balance / .10);
+                balance = balance - ((double)numberOfDimes * .10);
+                System.out.println("balance here: " + balance);
+                numberOfNickels = (int)(balance / .05);
+                balance = balance - ((double)numberOfNickels * .05);
+                System.out.println("You will receive " + numberOfQuarters + " quarters, " + numberOfDimes + " dimes, and " + numberOfNickels + " in nickels.");
+            }
+        } else {
+            System.out.println("You're broke");
+        }
+        return balance;
+    }
+}
+/*
+            }
+        if (balance > 0.0) {
+            if ((balance % .25) == 0) {
+                numberOfQuarters = (int) (balance / .25);
+                balance = balance - (numberOfQuarters * .25);
+                if (balance > 0) {
+                    if ((balance % .1) == 0) {
+                        numberOfDimes = (int) ((balance % .25) / .10);
+                        balance = balance - (numberOfDimes * .10);
+                    }
+                    if ()
+                }
+            } else {
+                if ((balance % .25) != 0) {
+                    numberOfQuarters = (int) (balance / .25);
+                    balance = balance - (numberOfQuarters * .25);
+                } else
+                } else if ((balance % .05) != 0) {
+                    numberOfNickels = (int) ((balance % .1) / 05);
+                    balance = balance - (numberOfNickels * .10);
+
+        if (balance > 0.0) {
+            System.out.println(balance);
             if ((balance % .25) != 0) {
                 numberOfQuarters = (int) (balance / .25);
                 balance = balance - (numberOfQuarters * .25);
@@ -33,11 +79,42 @@ public class MathOperations {
             } else if ((balance % .05) != 0) {
                 numberOfNickels = (int) ((balance % .1) / 05);
                 balance = balance - (numberOfNickels * .10);
+            } else {
+
             }
-            System.out.println("You will receive " + numberOfQuarters + " quarters, " + numberOfDimes + " dimes, and " + numberOfNickels + " in nickels.");
-        } else {
-            System.out.println("Your balance is &" + balance);
+
+        if (balance > 0.0) {
+        if ((balance % .25) == 0) {
+        numberOfQuarters = (int) (balance / .25);
+        balance = balance - (numberOfQuarters * .25);
+        else{
+        numberOfQuarters = balance / .25;
+        balance = balance-(numberOfQuarters*.25);
+        numberOfDimes= balance / .10;
+        balance = balance-(numberOfDimes*.10);
+        numberOfNickels=balance / .5;
         }
-        return balance;
-    }
-}
+
+
+
+
+        if ((balance % .1) == 0) {
+        numberOfDimes = (int) ((balance % .25) / .10);
+        balance = balance - (numberOfDimes * .10);
+        }
+        if ()
+        }
+        } else {
+        if ((balance % .25) != 0) {
+        numberOfQuarters = (int) (balance / .25);
+        balance = balance - (numberOfQuarters * .25);
+        } else
+        } else if ((balance % .05) != 0) {
+        numberOfNickels = (int) ((balance % .1) / 05);
+        balance = balance - (numberOfNickels * .10);
+        } else {
+        System.out.println("Your balance is &" + balance);
+        }
+        }
+
+ */

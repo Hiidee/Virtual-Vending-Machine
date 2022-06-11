@@ -7,11 +7,9 @@ import java.util.Scanner;
 
 public class UserInterface {
     Scanner scanner = new Scanner(System.in);
-//    UserInterface ui = new UserInterface();
     VendingMachine vendingMachine = new VendingMachine();
     MathOperations math = new MathOperations();
 
-    // maybe get start look at review day for example of mostly class work and calling the ui.start method
     public void start() {
         int menuChoiceNumber = 0;
         do {
@@ -28,12 +26,12 @@ public class UserInterface {
             }
 
            if (menuChoiceNumber == 1) {
-                System.out.println(vendingMachine);
+                System.out.println(vendingMachine); // this also needs to show stock
                 menuChoiceNumber = 0;
             } else if (menuChoiceNumber == 2) {
                 getPurchaseMenu();
             } else if (menuChoiceNumber == 3) {
-                System.out.println("Adios");
+                System.out.println("Good Bye");
                 System.exit(0);
             } else if (menuChoiceNumber == 4) {
                 System.out.println("Feed me a stray cat");
@@ -93,42 +91,21 @@ public class UserInterface {
                 }
             } else if (menuChoiceNumber == 2) {
                 System.out.println(vendingMachine);
-                System.out.println("Choose key");
+                System.out.println("Choose item");
                 String pickLocation = scanner.nextLine();
-                vendingMachine.purchaseItem(pickLocation);
+//                vendingMachine.purchaseItem(pickLocation);
 
             } else if (menuChoiceNumber == 3) {
                 System.out.println("Calculating Change");
-                math.receivesChange(math.getBalance());
+                math.getChange(math.getBalance()); // maybe
+                System.out.println("New balance: " + math.getBalance());
+                start();
                 // log add calling method
-                // how to get back to ui.start()???
             }
         } while (menuChoiceNumber <= 0 || menuChoiceNumber > 3);
     }
 }
 /*
-    public void dispenseResponse() { //This may need to go somewhere else. Like if there's a get.Chip() it could be part of that.
-        // String chipPhrase = "Crunch Crunch, Yum!"
-        // String drinkPhrase = "Glug Glug, Yum!"
-        // String candyPhrase = "Munch Munch, Yum!"
-        // String gumPhrase = "Chew Chew, Yum!"
-        // this approach would require a for loop
-        // if (productType.equals("Chip"));
-        //System.out.println("Enjoy your " + productName + ". It cost: " + price + ". Your remaining balance is: " + newBalance + ". " + chipPhrase);
-        // if (productType.equals("Gum"));
-        //System.out.println("Enjoy your " + productName + ". It cost: " + price + ". Your remaining balance is: " + newBalance + ". " + gumPhrase);
-        // if (productType.equals("Drink"));
-        //System.out.println("Enjoy your " + productName + ". It cost: " + price + ". Your remaining balance is: " + newBalance + ". " + drinkPhrase);
-        // if (productType.equals("Candy"));
-        //System.out.println("Enjoy your " + productName + ". It cost: " + price + ". Your remaining balance is: " + newBalance + ". " + candyPhrase);
-    }
-
-    public void activityTextToLog() {
-        String dateTime = LocalDateTime.now().format(DateTimeFormatter.ofPattern("MM/dd/yyyy h:mm:ss a"));
-        // if money is deposited, writer.println(dateTime + " FEED MONEY: $" + moneyIn + " $" + newBalance);
-        // if money is spent, writer.println(dateTime + " " + productName + " " + productLocation + " $" + price + " $" + newBalance);
-        // if change is given, writer.println(dateTime + " GIVE CHANGE: $" + changeReturned + " $" + newBalance);
-    }
 
     // potentially getUserInput() Method that takes input from keyboard for 1,2,3 then would call the menu based on input
     // else it would return the error and message

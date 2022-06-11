@@ -5,4 +5,7 @@ public class Drink extends VendingMachineItem {
         super(productName, price, "Drink");
     }
     // constructor needs to be overwritten since the parent has a custom constructor
+
+    // String drinkPhrase = "Glug Glug, Yum!"
+
 }
