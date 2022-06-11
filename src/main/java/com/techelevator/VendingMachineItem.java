@@ -6,6 +6,8 @@ public abstract class VendingMachineItem {
     private double price;
     private String productType;
     private int quantity = 5;
+    private String message;
+    private boolean isStocked = true;
 
     public VendingMachineItem(String productName, double price, String productType) {
         this.productName = productName;
@@ -13,11 +15,16 @@ public abstract class VendingMachineItem {
         this.productType = productType;
     }
 
+    public boolean isStocked() {
+        if (quantity == 0) {
+            isStocked = false;
+        }
+        return isStocked;
+    }
+
     // return the quantity so we can update
     // math operations needs to handle
     // need to be able to call math operations
-
-
 
     public String getProductName() {
         return productName;

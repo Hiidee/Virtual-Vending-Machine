@@ -39,7 +39,7 @@ public class VendingMachine {
                     item = new Drink(productName, price);
                 }
                 if (productType.equals("Gum")) {
-                    item = new Gum(productName, price); // this is out of scope, we need to bring it back in scope
+                    item = new Gum(productName, price);
                 }
                 /*
                 // then we need to move each new item into the inventory (aka Vending Machine) <==== goes in a list, organized by productName - list says "Toblerone (4!), Snickers (3!)
@@ -54,20 +54,24 @@ public class VendingMachine {
     }
 
     public VendingMachineItem purchaseItem(String pickLocation) { // input is locationKey, that pulls map at the location and gives the object
+        System.out.println("test");
         if (inventory.containsKey(pickLocation)) {
-            if ()
-        }
-            int quantity = 5;
-        if (quantity == 0) {    // if map.contains(locationKey)
-            System.out.println("SOLD OUT"); // quantity check and if > 0  && balance > price then quantity-- and new balance = balance - price
-            return quantity;                // else if (quantity = 0) return out of stock and pull menu again
-        }                                   // else if (balance < price) return balance not enough and return the menu again
-        if (quantity > 0) {
-            quantity = quantity - 1;
-            return quantity;
-
-        }
-        return quantity;
+            inventory.g(pickLocation);
+//            if ()
+//        } else {
+//            System.out.println("Invalid location");
+//        }
+//            int quantity = 5;
+//        if (quantity == 0) {    // if map.contains(locationKey)
+//            System.out.println("SOLD OUT"); // quantity check and if > 0  && balance > price then quantity-- and new balance = balance - price
+//            return quantity;                // else if (quantity = 0) return out of stock and pull menu again
+//        }                                   // else if (balance < price) return balance not enough and return the menu again
+//        if (quantity > 0) {
+//            quantity = quantity - 1;
+//            return quantity;
+//
+//        }
+        return ;
     }
 
     @Override
