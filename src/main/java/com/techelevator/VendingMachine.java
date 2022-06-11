@@ -46,6 +46,8 @@ public class VendingMachine {
                 //make one of these for each treat type
                 //VendingMachineItem item = new Gum(productName, price);
                  */
+
+
                 inventory.put(locationKey, item);    // this loads the map
             }
         } catch (FileNotFoundException fnfe) {
