@@ -1,10 +1,15 @@
 package com.techelevator;
 
 public class Candy extends VendingMachineItem {
+    String message = "Munch Munch, Yum!";
     public Candy(String productName, double price) {
         super(productName, price, "Candy");
     }
 
+    @Override
+    public String consume() {
+        return message;
+    }
 /*
     // constructor needs to be overwritten since the parent has a custom constructor
         // String candyPhrase = "Munch Munch, Yum!"

@@ -1,12 +1,10 @@
 package com.techelevator;
 
 public abstract class VendingMachineItem {
-//    private String locationKey;
     private String productName;
     private double price;
     private String productType;
     private int quantity = 5;
-    private String message;
     private boolean isStocked = true;
 
     public VendingMachineItem(String productName, double price, String productType) {
@@ -14,6 +12,8 @@ public abstract class VendingMachineItem {
         this.price = price;
         this.productType = productType;
     }
+
+      public abstract String consume();
 
     public boolean isStocked() {
         if (quantity == 0) {
