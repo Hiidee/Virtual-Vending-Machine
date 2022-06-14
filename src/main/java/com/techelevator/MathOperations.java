@@ -53,7 +53,7 @@ public class MathOperations {
         }
         setBalance(balanceInt);
         System.out.println("You will receive " + numberOfQuarters + " quarters, " + numberOfDimes + " dimes, and " + numberOfNickels + " nickels.");
-        return balanceInt / 100;
+        return balanceInt / 100.0;
     }
 }
 /*
