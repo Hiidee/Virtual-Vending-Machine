@@ -102,7 +102,7 @@ public class UserInterface {
             } else if (menuChoiceNumber == 3) {
                 System.out.println("Calculating Change");
 //                math.getChange(math.getBalance()); // maybe
-                System.out.println("New balance: " + math.getBalance());
+                System.out.println("Balance before change dispense: " + math.getBalance());
                 logger.addToLogGiveChange(math);
                 start();
             }

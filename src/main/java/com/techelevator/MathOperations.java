@@ -2,6 +2,15 @@ package com.techelevator;
 
 public class MathOperations {
     private double balance = 0.00;
+    private int moneyIn = 0;
+
+    public void setMoneyIn(int moneyIn) {
+        this.moneyIn = moneyIn;
+    }
+
+    public int getMoneyIn() {
+        return moneyIn;
+    }
 
     public double getBalance() {
         return balance;
@@ -13,6 +22,7 @@ public class MathOperations {
 
     public double feedMoney(int moneyIn) {
         if (moneyIn > 0) {
+            setMoneyIn(moneyIn);
             balance = balance + moneyIn; // we need to double check where moneyIn is declared, and develop some stuff around what if moneyIn is a string
         }
         //setBalance(balance);
@@ -35,7 +45,7 @@ public class MathOperations {
                 balanceInt = balanceInt - (numberOfQuarters * 25);
                 numberOfDimes = (balanceInt / 10);
                 balanceInt = balanceInt - (numberOfDimes * 10);
-                System.out.println("balance here: " + balance);
+//                System.out.println("balance here: " + balanceInt / 100);
                 numberOfNickels = (balanceInt / 5);
                 balanceInt = balanceInt - (numberOfNickels * 5);
             }
@@ -43,7 +53,7 @@ public class MathOperations {
             System.out.println("You're broke");
         }
         setBalance(balanceInt);
-        System.out.println("You will receive " + numberOfQuarters + " quarters, " + numberOfDimes + " dimes, and " + numberOfNickels + " in nickels.");
+        System.out.println("You will receive " + numberOfQuarters + " quarters, " + numberOfDimes + " dimes, and " + numberOfNickels + " nickels.");
         return balanceInt / 100;
     }
 }

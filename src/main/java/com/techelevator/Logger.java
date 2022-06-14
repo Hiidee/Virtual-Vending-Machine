@@ -35,7 +35,7 @@ public class Logger {
             } else {
                 // fileWriter append = new fileWriter(new fileWriter(destinationfile, true))
                 try (PrintWriter append = new PrintWriter(new FileWriter(destinationFile, true))) {
-                    append.println(dateTime + " FEED MONEY: $" + math.getBalance() + " $" + math.getBalance());
+                    append.println(dateTime + " FEED MONEY: $" + math.getMoneyIn() + " $" + math.getBalance());
                 } catch (Exception e) {
                     System.out.println("CAUGHT YA");
                 }
