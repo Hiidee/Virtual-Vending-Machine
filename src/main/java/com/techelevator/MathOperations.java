@@ -25,7 +25,6 @@ public class MathOperations {
             setMoneyIn(moneyIn);
             balance = balance + moneyIn; // we need to double check where moneyIn is declared, and develop some stuff around what if moneyIn is a string
         }
-        //setBalance(balance);
         return balance;
     }
 
