@@ -2,6 +2,15 @@ package com.techelevator;
 
 public class MathOperations {
     private double balance = 0.00;
+    private int moneyIn = 0;
+
+    public void setMoneyIn(int moneyIn) {
+        this.moneyIn = moneyIn;
+    }
+
+    public int getMoneyIn() {
+        return moneyIn;
+    }
 
     public double getBalance() {
         return balance;
@@ -13,18 +22,48 @@ public class MathOperations {
 
     public double feedMoney(int moneyIn) { //test me
         if (moneyIn > 0) {
+            setMoneyIn(moneyIn);
             balance = balance + moneyIn; // we need to double check where moneyIn is declared, and develop some stuff around what if moneyIn is a string
         }
         return balance;
     }
 
-    // needs looked at
-    public double getChange(double balance) { // test me
+    public double getChange(double balance) {
+        int numberOfDimes = 0;
+        int numberOfQuarters = 0;
+        int numberOfNickels = 0;
+
+        int balanceInt = (int)(balance * 100);
+
+        if (balanceInt > 0) {
+            if ((balanceInt % 25) == 0) {
+                numberOfQuarters = (balanceInt / 25);
+                balanceInt = balanceInt - (numberOfQuarters * 25);
+            } else {
+                numberOfQuarters = (balanceInt / 25);
+                balanceInt = balanceInt - (numberOfQuarters * 25);
+                numberOfDimes = (balanceInt / 10);
+                balanceInt = balanceInt - (numberOfDimes * 10);
+//                System.out.println("balance here: " + balanceInt / 100);
+                numberOfNickels = (balanceInt / 5);
+                balanceInt = balanceInt - (numberOfNickels * 5);
+            }
+        } else {
+            System.out.println("You're broke");
+        }
+        setBalance(balanceInt);
+        System.out.println("You will receive " + numberOfQuarters + " quarters, " + numberOfDimes + " dimes, and " + numberOfNickels + " nickels.");
+        return balanceInt / 100;
+    }
+}
+/*
+public double getChange(double balance) {
         int numberOfDimes = 0;
         int numberOfQuarters = 0;
         int numberOfNickels = 0;
 
         balance = 1.40;
+        int balanceInt = (int)(balance) * 100;
 
         if (balance > 0.0) {
             if ((balance % .25) == 0) {
@@ -45,7 +84,8 @@ public class MathOperations {
         }
         return balance;
     }
-}
+ */
+
 /*
             }
         if (balance > 0.0) {

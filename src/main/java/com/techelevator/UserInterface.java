@@ -9,6 +9,7 @@ public class UserInterface {
     Scanner scanner = new Scanner(System.in);
     VendingMachine vendingMachine = new VendingMachine();
     MathOperations math = new MathOperations();
+    Logger logger = new Logger();
 
     public void start() {
         int menuChoiceNumber = 0;
@@ -19,22 +20,23 @@ public class UserInterface {
 
             try {
                 String menuChoice = scanner.nextLine();
-                menuChoiceNumber = Integer.parseInt(menuChoice);// put a try catch here in case someone enters a character
+                menuChoiceNumber = Integer.parseInt(menuChoice);
             } catch (Exception e) {
                 System.out.println("You broke the machine");
                 menuChoiceNumber = -1;
             }
 
            if (menuChoiceNumber == 1) {
-                System.out.println(vendingMachine); // this also needs to show stock
+                System.out.println(vendingMachine);
                 menuChoiceNumber = 0;
             } else if (menuChoiceNumber == 2) {
                 getPurchaseMenu();
             } else if (menuChoiceNumber == 3) {
-                System.out.println("Good Bye");
+                System.out.println("Closing Program");
                 System.exit(0);
             } else if (menuChoiceNumber == 4) {
                 System.out.println("Feed me a stray cat");
+                //do stuff with logger sales report file
             }
         }while(menuChoiceNumber <= 0 || menuChoiceNumber > 4);
     }
@@ -72,7 +74,7 @@ public class UserInterface {
 
             try {
                 String menuChoice = scanner.nextLine();
-                menuChoiceNumber = Integer.parseInt(menuChoice);// put a try catch here in case someone enters a character
+                menuChoiceNumber = Integer.parseInt(menuChoice);
             } catch (Exception e) {
                 System.out.println("You broke the machine");
                 menuChoiceNumber = -1;
@@ -83,7 +85,7 @@ public class UserInterface {
                     String inputMoney = scanner.nextLine();
                     int moneyIn = Integer.parseInt(inputMoney);
                     math.feedMoney(moneyIn);
-                    // log add method call
+                    logger.addToLogFeedMoney(math);
                     menuChoiceNumber = 0;
                 } catch (Exception e) {
                     System.out.println("Enter a positive whole number value!");
@@ -93,34 +95,17 @@ public class UserInterface {
                 System.out.println(vendingMachine);
                 System.out.println("Choose item");
                 String pickLocation = scanner.nextLine();
-//                vendingMachine.purchaseItem(pickLocation);
+                VendingMachineItem item = vendingMachine.purchaseItem(pickLocation,math);
+                logger.addToLogItemPurchase(pickLocation, item, math);
+                menuChoiceNumber = 0; // return to purchase menu
 
             } else if (menuChoiceNumber == 3) {
                 System.out.println("Calculating Change");
-                math.getChange(math.getBalance()); // maybe
-                System.out.println("New balance: " + math.getBalance());
+//                math.getChange(math.getBalance()); // maybe
+                System.out.println("Balance before change dispense: " + math.getBalance());
+                logger.addToLogGiveChange(math);
                 start();
-                // logger(addToLogChange)
             }
         } while (menuChoiceNumber <= 0 || menuChoiceNumber > 3);
     }
 }
-/*
-
-    // potentially getUserInput() Method that takes input from keyboard for 1,2,3 then would call the menu based on input
-    // else it would return the error and message
-    //        String menuChoice = scanner.nextLine();
-    //        int menuChoiceNumber = Integer.parseInt(menuChoice);
-    //
-    //        if (menuChoiceNumber == 0 || menuChoiceNumber > 4) {
-    //            System.out.println("Please enter 1, 2, or 3");
-    //            userInterface.getMainMenu();
-    //        } else if (menuChoiceNumber == 1) {
-    //            System.out.println(vendingMachine.toString());
-    //        } else if (menuChoiceNumber == 2) {
-    //        } else if (menuChoiceNumber == 3) {
-    //        } else if (menuChoiceNumber == 4) {
-    //        }
-    // possible content of the method
-}
- */

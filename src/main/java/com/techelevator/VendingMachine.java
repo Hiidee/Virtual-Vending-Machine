@@ -8,7 +8,7 @@ public class VendingMachine {
     private final String FILE_NAME = "vendingmachine.csv";
 
     // Vending machine has an inventory
-    private Map<String, Object> inventory; // we can store a location with an entire object
+    private Map<String, VendingMachineItem> inventory; // we can store a location with an entire object
 
     public VendingMachine() {
         inventory = new HashMap<>();
@@ -55,33 +55,49 @@ public class VendingMachine {
         }
     }
 
-//    public VendingMachineItem purchaseItem(String pickLocation) { // input is locationKey, that pulls map at the location and gives the object
-//        System.out.println("test");
-//        if (inventory.containsKey(pickLocation)) {
-//            inventory.g(pickLocation);
-//            if ()
-//        } else {
-//            System.out.println("Invalid location");
-//        }
-//            int quantity = 5;
-//        if (quantity == 0) {    // if map.contains(locationKey)
-//            System.out.println("SOLD OUT"); // quantity check and if > 0  && balance > price then quantity-- and new balance = balance - price
-//            return quantity;                // else if (quantity = 0) return out of stock and pull menu again
-//        }                                   // else if (balance < price) return balance not enough and return the menu again
-//        if (quantity > 0) {
-//            quantity = quantity - 1;
-//            return quantity;
-//
-//        }
-//        return ;
-//    }
+    public VendingMachineItem purchaseItem(String pickLocation, MathOperations math) { // input is locationKey, that pulls map at the location and gives the object
+        VendingMachineItem pickedItem = null;
+        String message = "";
+        double balance = math.getBalance();
+        double price = 0;
+        if (inventory.containsKey(pickLocation)) {
+            pickedItem = inventory.get(pickLocation);
+
+        } else {
+            System.out.println("Invalid location, returning to purchase menu"); // no location found
+            return null;
+        }
+        try {
+            if (pickedItem.getQuantity() == 0) {    // if map.contains(locationKey)
+                System.out.println("SOLD OUT");     // quantity check and if > 0  && balance > price then quantity-- and new balance = balance - price
+                return pickedItem;                  // else if (quantity = 0) return out of stock and pull menu again
+                                                    // else if (balance < price) return balance not enough and return the menu again
+            }
+            balance = math.getBalance();
+            price = pickedItem.getPrice();
+            if (balance >= price) {
+                balance = balance - price;
+                math.setBalance(balance);
+                if (pickedItem.getQuantity() > 0) {
+                    pickedItem.setQuantity(pickedItem.getQuantity()-1);
+                    System.out.println(pickedItem.consume());
+                    return pickedItem;
+                }
+            } else {
+                System.out.println("not enough money");
+            }
+        } catch (Exception e) {
+            System.out.println("something went wrong");
+        }
+        return pickedItem;
+    }
 
     @Override
     public String toString() {
         String print = "";
         for (String vendingItem : inventory.keySet()) {
             // vendingItem += inventory.values();
-            print += vendingItem + ": " + inventory.get(vendingItem) + " \n";
+            print += vendingItem + ": " + inventory.get(vendingItem) + " Stock: " + inventory.get(vendingItem).getQuantity() + "\n";
         }
         ///    \n  newline - loop thru map, for each inventory.keyset, create a string variable, string += inventory.key. get name + get price + \n
         return print; // can we need to add + price and + quantity?? <key: Location, value: "productName + productPrice + quantity">
