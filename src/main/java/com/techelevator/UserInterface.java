@@ -100,7 +100,7 @@ public class UserInterface {
                 math.getChange(math.getBalance()); // maybe
                 System.out.println("New balance: " + math.getBalance());
                 start();
-                // log add calling method
+                // logger(addToLogChange)
             }
         } while (menuChoiceNumber <= 0 || menuChoiceNumber > 3);
     }

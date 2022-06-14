@@ -11,7 +11,7 @@ public class MathOperations {
         this.balance = balance;
     }
 
-    public double feedMoney(int moneyIn) {
+    public double feedMoney(int moneyIn) { //test me
         if (moneyIn > 0) {
             balance = balance + moneyIn; // we need to double check where moneyIn is declared, and develop some stuff around what if moneyIn is a string
         }
@@ -19,7 +19,7 @@ public class MathOperations {
     }
 
     // needs looked at
-    public double getChange(double balance) {
+    public double getChange(double balance) { // test me
         int numberOfDimes = 0;
         int numberOfQuarters = 0;
         int numberOfNickels = 0;
@@ -36,7 +36,7 @@ public class MathOperations {
                 numberOfDimes = (int)(balance / .10);
                 balance = balance - ((double)numberOfDimes * .10);
                 System.out.println("balance here: " + balance);
-                numberOfNickels = (int)(balance / .05);
+                numberOfNickels = (int)(Math.round(balance) / .05); // <-- TRIED IT HERE
                 balance = balance - ((double)numberOfNickels * .05);
                 System.out.println("You will receive " + numberOfQuarters + " quarters, " + numberOfDimes + " dimes, and " + numberOfNickels + " in nickels.");
             }

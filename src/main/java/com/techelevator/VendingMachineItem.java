@@ -15,7 +15,7 @@ public abstract class VendingMachineItem {
         this.productType = productType;
     }
 
-    public boolean isStocked() {
+    public boolean isStocked() { //test me!
         if (quantity == 0) {
             isStocked = false;
         }

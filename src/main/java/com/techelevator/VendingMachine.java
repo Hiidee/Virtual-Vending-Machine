@@ -55,10 +55,10 @@ public class VendingMachine {
         }
     }
 
-    public VendingMachineItem purchaseItem(String pickLocation) { // input is locationKey, that pulls map at the location and gives the object
-        System.out.println("test");
-        if (inventory.containsKey(pickLocation)) {
-            inventory.g(pickLocation);
+//    public VendingMachineItem purchaseItem(String pickLocation) { // input is locationKey, that pulls map at the location and gives the object
+//        System.out.println("test");
+//        if (inventory.containsKey(pickLocation)) {
+//            inventory.g(pickLocation);
 //            if ()
 //        } else {
 //            System.out.println("Invalid location");
@@ -73,8 +73,8 @@ public class VendingMachine {
 //            return quantity;
 //
 //        }
-        return ;
-    }
+//        return ;
+//    }
 
     @Override
     public String toString() {
